@@ -5,15 +5,30 @@ public class Controller {
     private Player player;
 
 
-
-    public Player[] addPlayers() {
-        Player player1 = new Player("#");
-        Player player2 = new Player("!");
-        Player player3 = new Player("*");
-
-        return new Player[]{player1, player2, player3};
+    public void addPlayers(){
+        addPlayer1("#");
+        addPlayer2("!");
+        addPlayer3("*");
     }
 
+    public Player addPlayer1(String id){
+
+        Player player1 = new Player("#");
+        return player1;
+    }
+
+    public Player addPlayer2(String id){
+        Player player2 = new Player("!");
+        return player2;
+    }
+
+    public Player addPlayer3(String id){
+        Player player3 = new Player("*");
+        return player3;
+    }
+
+
+    
     public Player playerPosition(int val){
 
         

@@ -13,6 +13,7 @@ public class Main{
     
     public Main(){
         this.reader = new Scanner(System.in);
+        controller = new Controller();
     }
 
     public Scanner getReader(){
@@ -49,6 +50,9 @@ public class Main{
         switch(option){
             case 1: 
             System.out.println("You are about to play snakes and ladders");
+            controller.addPlayers();
+            System.out.println("Players initialized");
+            controller.printPlayers();
              
 
             
