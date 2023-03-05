@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Main{
     private Scanner reader;
+    private Controller controller;
     
     
     public Main(){
@@ -47,7 +48,8 @@ public class Main{
 
         switch(option){
             case 1: 
-            System.out.println("You are about to play but first register the players");
+            System.out.println("You are about to play snakes and ladders");
+             
 
             
 
