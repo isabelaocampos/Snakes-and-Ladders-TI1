@@ -2,13 +2,10 @@ package model;
 
 public class Controller {
 
-    private Player player;
 
 
     public void addPlayers(){
-        addPlayer1("#");
-        addPlayer2("!");
-        addPlayer3("*");
+        
     }
 
     public Player addPlayer1(String id){
@@ -27,6 +24,7 @@ public class Controller {
         return player3;
     }
 
+    
 
     
     public Player playerPosition(int val){

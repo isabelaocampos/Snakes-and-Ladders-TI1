@@ -52,11 +52,11 @@ public class Main{
             System.out.println("You are about to play snakes and ladders");
             controller.addPlayers();
             System.out.println("Players initialized");
-            controller.printPlayers();
-             
-
+            System.out.println("Player 1, your id is # \n" +
+            "Player 2, your id is ! \n" +
+            "Player 3 your id is *");
             
-
+            System.out.println();;
             break;
             case 2:
             
