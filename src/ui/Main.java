@@ -45,16 +45,26 @@ public class Main{
 	}
 
     public void executeOption(int option){
-    
+        int columns, rows, snakes, ladders= 0;
 
         switch(option){
             case 1: 
             System.out.println("You are about to play snakes and ladders");
-            controller.addPlayers();
-            System.out.println("Players initialized");
-            System.out.println("Player 1, your id is # \n" +
-            "Player 2, your id is ! \n" +
-            "Player 3 your id is *");
+            System.out.println("Write the amount of columns the grid is going to have: ");
+            columns = reader.nextInt();
+            System.out.println("Write the amount of rows the grid is going to have: ");
+            rows = reader.nextInt();
+            System.out.println("Write the amount of snakes that are going to be on the grid: ");
+            snakes = reader.nextInt();
+            System.out.println("Write the amount of ladders that are going to be on the grid: ");
+            ladders = reader.nextInt();
+            controller.createGame(rows, columns, snakes, ladders);
+            //controller.addPlayers();
+            //System.out.println("Players initialized");
+            //System.out.println("Player 1, your id is # \n" +
+            //"Player 2, your id is ! \n" +
+            //"Player 3 your id is *");
+
             
             System.out.println();;
             break;
