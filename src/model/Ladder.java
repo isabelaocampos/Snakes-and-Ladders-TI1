@@ -2,19 +2,21 @@ package model;
 
 public class Ladder {
 
-    private String id;
+    private int id;
     private String bottom;
     private String top;
+    private int number;
     
-    public Ladder(String id) {
+    public Ladder(int id) {
         this.id = id;
+        this.number = number;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -32,6 +34,12 @@ public class Ladder {
 
     public void setTop(String top) {
         this.top = top;
+    }
+    public int getNumber(){
+        return number;
+    }
+    public void setNumber (int number){
+        this.number = number;
     }
 
 }

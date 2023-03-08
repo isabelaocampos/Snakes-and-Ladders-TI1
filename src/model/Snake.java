@@ -5,6 +5,7 @@ public class Snake {
     private String id;
     private String tail;
     private String head;
+    private String symbol;
 
     public Snake(String id) {
         this.id = id;
@@ -32,6 +33,14 @@ public class Snake {
 
     public void setHead(String head) {
         this.head = head;
+    }
+
+    public String getSymbol(){
+        return symbol;
+    }
+
+    public void setSymbol(String symbol){
+        this.symbol = symbol;
     }
 
 }

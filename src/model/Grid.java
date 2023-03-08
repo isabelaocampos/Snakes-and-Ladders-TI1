@@ -87,5 +87,15 @@ public class Grid {
         }
 
     }
+
+    public void addSnakes(int create){
+        int attempts = 0;
+        int maxAttemps = 100;
+        while (create <= sn){
+            if(attempts > maxAttemps){
+                return;
+            }
+        }
+    }
     
 }
