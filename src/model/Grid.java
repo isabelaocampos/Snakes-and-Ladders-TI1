@@ -136,6 +136,25 @@ public class Grid {
             }else{
                 attempts++;
             }
+        }      
+    }
+    public void addLadders(int create){
+        if(create <= snakes){
+            int pos  = randomNumber(nRow *nColumn);
+            int pos2 = randomNumber(nRow * nColumn);
+            if(pos == pos2 || pos ==1 || pos2 == 1 || pos == nRow *nColumn || pos2 == nRow*nColumn){
+                addSnakes(create);
+            }else{
+                Node node = getNode(goal, pos);
+                Node node2 = getNode(node, pos2);
+                if(node.allTributesNull() == 0 && node2.allTributesNull() == 0){
+                    node.createTheLadder(create);
+                    node2.createTheLadder(create);
+                    addSnakes(++create);
+                }else{
+                    addSnakes(create);
+                }
+            }
         }
     }
 
