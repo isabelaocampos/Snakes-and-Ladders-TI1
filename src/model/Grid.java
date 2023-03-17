@@ -136,7 +136,7 @@ public class Grid {
             }else{
                 attempts++;
             }
-        }      
+        }       
     }
     public void addLadders(int create){
         if(create <= snakes){
@@ -157,6 +157,46 @@ public class Grid {
             }
         }
     }
+
+    private int findLadder(int num, Node pointer,Node value ){
+        if(pointer.getLadder() != null && pointer.getNumberStair() == num && pointer !=value){
+            return pointer.getValue();
+        }else{
+            return findLadder(num, pointer.getNext(), value);
+        }
+    }
+
+    private int findSnake(String symbol, Node pointer, Node value){
+        if(pointer.getSnake() != null && pointer.getSymbolOfSnake().equalsIgnoreCase(symbol) && pointer != value){
+            return pointer.getValue();
+        } else{
+            return findSnake(symbol, pointer.getNext(), value);
+        }
+    }
+
+    public String gridSL(int n){
+        String list = "";
+
+        return gridSL(node, list, n);
+    }
+
+    public String gridSL(Node pointer, String list, int n){
+        if(pointer == null){
+            return null;
+        }
+        if (pointer.getValue() == n){
+            if(pointer.getSnake() != null){
+                return list += pointer.getSymbolOfSnake();
+            }else if(pointer.getLadder() != null){
+                return list += pointer.getNumberStair();
+            }else{
+                return list;
+            }
+        }else{
+            return gridSL(pointer.getNext(), list, n);
+        }
+    }
+
 
 
 
