@@ -63,7 +63,7 @@ public class Main{
             System.out.println("\n You are about to throw a dice");
 
             break;
-            case 2: 
+            case 0: 
             System.out.println("This are the snakes and ladders in the game");
 
             break;
@@ -75,30 +75,27 @@ public class Main{
     }
 
     public void executeOption(int option){
-        int option2, columns, rows, snakes, ladders= 0;
+        
 
         switch(option){
             case 1: 
             System.out.println("You are about to play snakes and ladders");
-            System.out.println("Write the amount of columns the grid is going to have: ");
-            columns = reader.nextInt();
-            System.out.println("Write the amount of rows the grid is going to have: ");
-            rows = reader.nextInt();
-            System.out.println("Write the amount of snakes that are going to be on the grid: ");
-            snakes = reader.nextInt();
-            System.out.println("Write the amount of ladders that are going to be on the grid: ");
-            ladders = reader.nextInt();
-            controller.createGame(rows, columns, snakes, ladders);
-            option2 = getOptionShowMenu2();
-            executeOption2(option2);
-            
-            System.out.println();;
-            break;
-            case 2:
-            System.out.println("Exit program.");
-            
-            break;
+            createBoard();
+            createPlayer(1);
+            System.out.println("Time to play!");
+            //printboard();
 
+            int option2 = 0;
+            while(option2 != 0){
+                option2 = getOptionShowMenu2();
+                executeOption2(option2); 
+
+
+            }
+            case 0:
+            System.out.println("Exit program.");
+        
+            break;
             default:
 
             break;
@@ -107,12 +104,47 @@ public class Main{
         }
     }
 
+    public void createBoard(){
+        int columns, rows, snakes, ladders = 0;
+
+        
+        System.out.println("Write the amount of columns the grid is going to have: ");
+        columns = reader.nextInt();
+        System.out.println("Write the amount of rows the grid is going to have: ");
+        rows = reader.nextInt();
+        System.out.println("Write the amount of snakes that are going to be on the grid: ");
+        snakes = reader.nextInt();
+        System.out.println("Write the amount of ladders that are going to be on the grid: ");
+        ladders = reader.nextInt();
+        controller.createGame(rows, columns, snakes, ladders);
+    }
+
+    public void createPlayer(int counter){
+        System.out.println("Let's register the players");
+
+        if(counter == 1){
+            System.out.println("Player 1, your id will be *");
+            controller.addPlayer1("*");
+            counter++;
+        }if(counter == 2){
+            System.out.println("Player 2, your id will be !");
+            controller.addPlayer2("!");
+            counter++;
+        }if(counter == 3){
+            System.out.println("Player 3, your id will be #");
+            controller.addPlayer3("#");
+            counter++;
+        }else if(counter == 4){
+            System.out.println("All players registered");
+        }else{
+            System.out.println("Invalid option");
+        }
+
+    }
+
     ////////////////
 
-    /**
-	 * validateIntergerInput: This method validates that the input is an interger
-	 * @return option: Is the input by the user or the number -1 to represent that is not an interger 
-	 */
+
     public int validateIntegerInput(){
 		int option = 0; 
 
