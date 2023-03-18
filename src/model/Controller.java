@@ -73,7 +73,7 @@ public class Controller {
 
         } else {
             System.out.println("su dado cayo en el numero " + num + "\n");
-            int position = position_Analysis(position_P);
+            int position = slPosition(position_P);
             msg = pBst.setPosition(position, turn);
             turn = newTurn(turn);
 
@@ -93,12 +93,16 @@ public class Controller {
 
     }
 
-    public int position_Analysis(int position_new) {
+    public int slPosition(int position_new) {
 
         return grid.slPosition(position_new);
 
     }
     
+    public String playerTurn(){
+        String msg = pBst.turn(turn);
+        return msg;
+    }
     
 
     
