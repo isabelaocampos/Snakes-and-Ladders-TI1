@@ -197,6 +197,54 @@ public class Grid {
         }
     }
 
+    public String grid(int n){
+        String list ="";
+        return grid(node,list, n);
+    }
+    
+
+    public String grid(Node pointer, String list, int n){
+        if(pointer == null){
+            return null;
+        }
+        if(pointer.getValue() == n){
+            list += "[" + pointer.getValue();
+            return list;
+        }else{
+            return grid(pointer.getNext(), list, n);
+        }
+    }
+
+    public int slPosition(int n){
+        return slPosition(n, node);
+    }
+
+    private int slPosition(int n, Node pointer){
+        if(pointer.getValue() != n){
+            return slPosition(n,pointer.getNext());
+        }else{
+            if(pointer.getSnake() != null){
+                String symbol = pointer.getSymbolOfSnake();
+                int posSnake = findSnake(symbol, node, pointer);
+                if(posSnake < n){
+                    return posSnake;
+                }else{
+                    return n;
+                }
+            }else if (pointer.getLadder() != null){
+                int number = pointer.getNumberStair();
+                int posLadder = findLadder(number, node, pointer);
+                if(posLadder > n){
+                    return posLadder;
+                }else{
+                    return n;
+                }
+            }else{
+                return n;
+            }
+        }
+    }
+
 
 
 
