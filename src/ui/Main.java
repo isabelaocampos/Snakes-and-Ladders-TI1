@@ -60,7 +60,9 @@ public class Main{
     public void executeOption2(int option2){
         switch(option2){
             case 1: 
+            System.out.println(controller.playerTurn());
             System.out.println("\n You are about to throw a dice");
+            System.out.println(controller.throwDice());
 
             break;
             case 0: 
