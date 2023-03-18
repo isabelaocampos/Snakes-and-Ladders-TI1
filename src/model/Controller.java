@@ -38,11 +38,7 @@ public class Controller {
 
     
     public Player playerPosition(int val){
-
-        
         Player player = null;
-
-
         return player;
     }
 }

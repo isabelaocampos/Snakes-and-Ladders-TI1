@@ -21,7 +21,27 @@ public class PlayerBst {
         }else{
             insert(pointer.getNextP(), id, turn);
         }
+    }
 
+    public String turn(int n){
+        return turn(n,player);
     }
     
+    public String turn(int n, Player player){
+        if(player != null && player.getTurn() == n){
+            return "Player -" + player.getId() + "- it is your turn \n";
+        }else{
+            return turn(n, player.getNextP());
+        }
+    }
+
+    public int endGame(int nRow, int nColumn){
+        return endGame(player,nRow, nColumn,1);
+    }
+
+    private int endGame(Player player, int nRow, int nColumn,int counter ){
+        if(counter > 3){
+            return 0;
+        }else if(player.)
+    }
 }
