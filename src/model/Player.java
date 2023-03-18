@@ -5,10 +5,12 @@ public class Player {
     private String id;
     private Player nextP;
     private int turn;
+    private int square;
 
     public Player(String id, int turn){
         this.id = id;
         this.turn = turn;
+        this.square = 1;
 
     }
 
@@ -29,7 +31,13 @@ public class Player {
 		this.nextP = nextP;
 	}
 
-	
+	public int getSquare(){
+        return square;
+    }
+
+    public void setSquare(int square){
+        this.square = square;
+    }
 
 	public int getTurn() {
 		return turn;
