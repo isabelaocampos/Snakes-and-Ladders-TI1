@@ -92,7 +92,7 @@ public class PlayerBst {
             return "";
         }
 
-        return inOrderToString(current.getRight()) + "," + "Player: " + current.getName() + "Score: " + current.getScore() + ", " + inOrderToString(current.getLeft());
+        return inOrderToString(current.getNext()) + "," + "Player: " + current.getName() + "Score: " + current.getScore() + ", " + inOrderToString(current.getPrevious());
     }
     
 }

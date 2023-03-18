@@ -28,15 +28,15 @@ public class ScoreNode {
         this.score = score;
     }
 
-    public ScoreNode getRight() {
+    public ScoreNode getNext() {
         return right;
     }
 
-    public void setRight(ScoreNode right) {
+    public void setNext(ScoreNode right) {
         this.right = right;
     }
 
-    public ScoreNode getLeft() {
+    public ScoreNode getPrevious() {
         return left;
     }
 

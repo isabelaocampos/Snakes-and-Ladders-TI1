@@ -67,7 +67,7 @@ public class CircularListPlayers {
     }
 
     private void delete(ScoreNode current, int goal){
-        if(current.getName() == goal){
+        if(current.getScore() == goal){
             if(current == head){
                 head.getPrevious().setNext(head.getNext());
                 head.getNext().setPrevious(head.getPrevious());
