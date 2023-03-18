@@ -42,7 +42,7 @@ public class PlayerBst {
     private int endGame(Player player, int nRow, int nColumn,int counter ){
         if(counter > 3){
             return 0;
-        }else if(player.getNode() == (nRow*nColumn) && counter <= 3){
+        }else if(player.getSquare() == (nRow*nColumn) && counter <= 3){
             return -1;
         }else{
             return endGame(player.getNextP(), nRow, nColumn, ++counter);

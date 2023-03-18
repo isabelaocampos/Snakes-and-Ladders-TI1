@@ -285,7 +285,7 @@ public class Grid {
 	}
 
 	private int searchStair(int number, Node pointer, Node val) {
-		if (pointer.getStair() != null && pointer.getNumberStair() == number && pointer != val) {
+		if (pointer.getLadder() != null && pointer.getNumberStair() == number && pointer != val) {
 			return pointer.getValue();
 		} else {
 			return searchStair(number, pointer.getNext(), val);
