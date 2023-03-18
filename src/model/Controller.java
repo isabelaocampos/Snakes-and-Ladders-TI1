@@ -15,7 +15,7 @@ public class Controller {
 
     public void addPlayer( String symbol, int turn) {
 
-        pBst.insert(symbol, turn);
+        pBst.insert(symbol, turn, symbol);
     }
 
 

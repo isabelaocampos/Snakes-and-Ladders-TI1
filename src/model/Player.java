@@ -5,10 +5,14 @@ public class Player {
     private String id;
     private Player nextP;
     private int turn;
+    private int node;
+    private String symbol;
 
-    public Player(String id, int turn){
+    public Player(String id, int turn, String symbol){
         this.id = id;
         this.turn = turn;
+        this.symbol = symbol;
+        this.node = 1;
 
     }
 
@@ -28,6 +32,13 @@ public class Player {
 	public void setNextP(Player nextP) {
 		this.nextP = nextP;
 	}
+
+    public int getNode(){
+        return node;
+    }
+    public void setCase(int Case){
+        this.node = node;
+    }
 
 	
 
