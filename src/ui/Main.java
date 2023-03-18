@@ -124,15 +124,15 @@ public class Main{
 
         if(counter == 1){
             System.out.println("Player 1, your id will be *");
-            controller.addPlayer1("*");
+            controller.addPlayer("*", counter);
             counter++;
         }if(counter == 2){
             System.out.println("Player 2, your id will be !");
-            controller.addPlayer2("!");
+            controller.addPlayer("!", counter);
             counter++;
         }if(counter == 3){
             System.out.println("Player 3, your id will be #");
-            controller.addPlayer3("#");
+            controller.addPlayer("#", counter);
             counter++;
         }else if(counter == 4){
             System.out.println("All players registered");

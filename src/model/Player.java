@@ -3,10 +3,13 @@ package model;
 public class Player {
     
     private String id;
-    private String positionOnGrid;
+    private Player nextP;
+    private int turn;
 
-    public Player(String id){
+    public Player(String id, int turn){
         this.id = id;
+        this.turn = turn;
+
     }
 
 
@@ -18,11 +21,22 @@ public class Player {
         this.id = id;
     }
 
-    public String getPositionOnGrid(){
-        return positionOnGrid;
-    }
+    public Player getNextP() {
+		return nextP;
+	}
 
-    public void setPositionOnGrid(String positionOnGrid){
-        this.positionOnGrid = positionOnGrid;
-    }
+	public void setNextP(Player nextP) {
+		this.nextP = nextP;
+	}
+
+	
+
+	public int getTurn() {
+		return turn;
+	}
+
+	public void setTurn(int turn) {
+		this.turn = turn;
+	}
+    
 }
