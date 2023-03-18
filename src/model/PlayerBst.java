@@ -82,5 +82,17 @@ public class PlayerBst {
         player_turn.setSquare(n);
         return "Player has moved";
     }
+
+    public String inOrderToString(){
+        return "[" + inOrderToString() + "]";
+    }
+
+    private String inOrderToString(ScoreNode current){
+        if(current == null){
+            return "";
+        }
+
+        return inOrderToString(current.getRight()) + "," + "Player: " + current.getName() + "Score: " + current.getScore() + ", " + inOrderToString(current.getLeft());
+    }
     
 }

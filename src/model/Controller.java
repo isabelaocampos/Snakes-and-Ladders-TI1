@@ -95,7 +95,7 @@ public class Controller {
 
     public int position_Analysis(int position_new) {
 
-        return grid.position_Analysis(position_new);
+        return grid.slPosition(position_new);
 
     }
     

@@ -1,8 +1,8 @@
 package model;
 
 public class CircularListPlayers {
-    private NodeCircularList head;
-    private NodeCircularList tail;
+    private ScoreNode head;
+    private ScoreNode tail;
     private int size;
     private int passedTurn;
 
@@ -14,7 +14,7 @@ public class CircularListPlayers {
         return size;
     }
 
-    public NodeCircularList getHead(){
+    public ScoreNode getHead(){
         return head;
     }
 
@@ -22,14 +22,14 @@ public class CircularListPlayers {
         this.size = size;
     }
 
-    public void addNode(NodeCircularList node){
+    public void addNode(ScoreNode node){
         if(head == null){
             head = node;
             head.setNext(head);
             head.setPrevious(head);
             size = 1;
         }else{
-            NodeCircularList tail = head.getPrevious();
+            ScoreNode tail = head.getPrevious();
             node.setNext(head);
             head.setPrevious(node);
             tail.setNext(node);
@@ -46,7 +46,7 @@ public class CircularListPlayers {
         }
     }
 
-    private void print(NodeCircularList current){
+    private void print(ScoreNode current){
         if(current == head.getPrevious()){
             System.out.println(current.getName());
             return;
@@ -66,15 +66,15 @@ public class CircularListPlayers {
         }
     }
 
-    private void delete(NodeCircularList current, int goal){
+    private void delete(ScoreNode current, int goal){
         if(current.getName() == goal){
             if(current == head){
                 head.getPrevious().setNext(head.getNext());
                 head.getNext().setPrevious(head.getPrevious());
                 head = head.getNext();
             }else{
-                NodeCircularList prev = current.getPrevious();
-                NodeCircularList next = current.getNext();
+                ScoreNode prev = current.getPrevious();
+                ScoreNode next = current.getNext();
                 prev.setNext(next);
                 next.setPrevious(prev);
             }
@@ -101,7 +101,7 @@ public class CircularListPlayers {
 
     }
 
-	private String printList(NodeCircularList current, String msj){
+	private String printList(ScoreNode current, String msj){
 		if(this.head == null){
 			return "Empty list";		
 		}
@@ -114,7 +114,7 @@ public class CircularListPlayers {
 		return printList(current.getNext(), msj); 
 	}
 
-    public void nextTurn(NodeCircularList current ){
+    public void nextTurn(ScoreNode current ){
         if(current.getNext() == null){
             System.out.println("No hay mas turnos");
             return;

@@ -245,52 +245,8 @@ public class Grid {
         }
     }
 
-    public int position_Analysis(int n) {
-		return position_Analysis(n, start);
-	}
-
-	private int position_Analysis(int n, Node pointer) {
-		if (pointer.getValue() != n) {
-			return position_Analysis(n, pointer.getNext());
-		} else {
-			if (pointer.getSnake() != null) {
-				String symbol = pointer.getSymbolOfSnake();
-				int position_other_Snake = searchSnake(symbol, start, pointer);
-				if (position_other_Snake < n) {
-					return position_other_Snake;
-				} else {
-					return n;
-				}
-			} else if (pointer.getLadder() != null) {
-				int number = pointer.getNumberStair();
-				int position_other_stair = searchStair(number, start, pointer);
-				if (position_other_stair > n) {
-					return position_other_stair;
-				} else {
-					return n;
-				}
-			} else {
-				return n;
-			}
-		}
-	}
 
 
-    private int searchSnake(String symbol, Node pointer, Node val) {
-		if (pointer.getSnake() != null && pointer.getSymbolOfSnake().equalsIgnoreCase(symbol) && pointer != val) {
-			return pointer.getValue();
-		} else {
-			return searchSnake(symbol, pointer.getNext(), val);
-		}
-	}
-
-	private int searchStair(int number, Node pointer, Node val) {
-		if (pointer.getLadder() != null && pointer.getNumberStair() == number && pointer != val) {
-			return pointer.getValue();
-		} else {
-			return searchStair(number, pointer.getNext(), val);
-		}
-	}
 
 
 
