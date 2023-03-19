@@ -33,7 +33,7 @@ public class PlayerBst {
     
     public String turn(int n, Player player){
         if(player != null && player.getTurn() == n){
-            return "Player -" + player.getId() + "- it is your turn \n";
+            return "Player " + player.getId() + " it's your turn \n";
         }else{
             return turn(n, player.getNextP());
         }

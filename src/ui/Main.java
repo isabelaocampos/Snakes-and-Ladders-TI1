@@ -61,13 +61,14 @@ public class Main{
         switch(option2){
             case 1: 
             System.out.println(controller.playerTurn());
-            System.out.println("\n You are about to throw a dice");
+            System.out.println("You're about to throw a dice \n");
             System.out.println(controller.throwDice());
             printGrid();
 
             break;
-            case 0: 
+            case 2: 
             System.out.println("This are the snakes and ladders in the game");
+            printSnakesNLadders();
             System.out.println("You are about to throw the dice");
             System.out.println(controller.throwDice());
             printGrid();
@@ -162,6 +163,11 @@ public class Main{
 
     public void printGrid() {
         System.out.println(controller.printGrid());
+
+    }
+
+    public void printSnakesNLadders() {
+        System.out.println(controller.printSnakesNLadders());
     }
     ////////////////
 
