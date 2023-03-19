@@ -105,12 +105,17 @@ public class PlayerBst {
 
     }
 
-    private String inOrderToString(ScoreNode current){
-        if(current == null){
-            return "";
-        }
-
-        return inOrderToString(current.getNext()) + "," + "Player: " + current.getName() + "Score: " + current.getScore() + ", " + inOrderToString(current.getPrevious());
+    public double calScore(Double seconds, int turn){
+        Player playerscore = findP(player, turn);
+        return calScore(seconds, playerscore, 0);
     }
+
+    private double calScore(Double seconds, Player player, double score){
+        score = (600 - seconds) / 6;
+
+
+        return score;
+    }
+
     
 }

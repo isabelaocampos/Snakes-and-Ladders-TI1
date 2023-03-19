@@ -33,7 +33,7 @@ public class Main{
 
 				main.getReader().close();
 	}
-	
+	//
 	public int getOptionShowMenu(){
 		int option = 0; 
 		System.out.println("<<<<< Welcome to Snakes and Ladders >>>>>");
@@ -45,7 +45,7 @@ public class Main{
 
 		return option; 
 	}
-
+    //
     public int getOptionShowMenu2(){
         int option2 = 0; 
 		System.out.println("<<<<< Time to play >>>>>");
@@ -56,7 +56,7 @@ public class Main{
 
 	    return option2;
     }
-
+    //
     public void executeOption2(int option2){
         switch(option2){
             case 1: 
@@ -79,7 +79,7 @@ public class Main{
             break;
         }
     }
-
+    //
     public void executeOption(int option){
         
 
@@ -109,7 +109,7 @@ public class Main{
 
         }
     }
-
+    //Validaciones
     public void createBoard(){
         int columns, rows, snakes, ladders = 0;
 
@@ -125,6 +125,8 @@ public class Main{
         controller.createGame(rows, columns, snakes, ladders);
     }
 
+
+    //
     public void createPlayer(int counter){
         System.out.println("Let's register the players");
 

@@ -12,7 +12,7 @@ public class Controller {
     private Instant start;
     private Instant end;
     private Duration duration;
-    private Double seg;
+    private Double seconds;
 
 
     public Controller(){
@@ -65,13 +65,13 @@ public class Controller {
 
             end = Instant.now();
             duration = Duration.between(start, end);
-            seg = duration.toNanos() / 1_000_000_000.0;
+            seconds = duration.toNanos() / 1_000_000_000.0;
         } else if (position_P == -2) {
             msg = "You landed a higher number than expected, try again in your next turn";
             turn = newTurn(turn);
 
         } else {
-            System.out.println("su dado cayo en el numero " + num + "\n");
+            System.out.println("Your dice landed in the number" + num + "\n");
             int position = slPosition(position_P);
             msg = pBst.setPosition(position, turn);
             turn = newTurn(turn);
@@ -166,6 +166,10 @@ public class Controller {
             return ++turn;
         }
 
+    }
+
+    public void calculateScore(){
+        pBst.calScore(seconds,turn);
     }
 
     public int slPosition(int position_new) {

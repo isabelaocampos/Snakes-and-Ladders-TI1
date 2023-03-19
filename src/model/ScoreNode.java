@@ -12,6 +12,30 @@ public class ScoreNode {
         this.score = score;
     }
 
+    public void setScore(Double score) {
+		this.score = score;
+	}
+
+	public double getScore() {
+		return score;
+	}
+
+	public ScoreNode getRight() {
+		return right;
+	}
+
+	public void setRight(ScoreNode right) {
+		this.right = right;
+	}
+
+	public ScoreNode getLeft() {
+		return left;
+	}
+
+	public void setLeft(ScoreNode left) {
+		this.left = left;
+	}
+
     public String getName() {
         return name;
     }
@@ -19,34 +43,5 @@ public class ScoreNode {
     public void setName(String name) {
         this.name = name;
     }
-
-    public Double getScore (){
-        return score;
-    }
-
-    public void setScore(Double score){
-        this.score = score;
-    }
-
-    public ScoreNode getNext() {
-        return right;
-    }
-
-    public void setNext(ScoreNode right) {
-        this.right = right;
-    }
-
-    public ScoreNode getPrevious() {
-        return left;
-    }
-
-    public void setPrevious(ScoreNode left) {
-        this.left = left;
-    }
-
-    @Override
-	public String toString(){
-		return "" +  name; 
-	}
 }
     
