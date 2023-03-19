@@ -39,6 +39,8 @@ public class Controller {
 
 
     public String createGame(int nRow, int nColumn, int snakes, int ladders){
+       
+        start = Instant.now();
         String msg = " ";
 
         if(snakes * ladders > nColumn * nRow){
@@ -49,6 +51,8 @@ public class Controller {
             grid = new Grid(nRow,nColumn,snakes,ladders);
             msg = "Grid created";
             grid.createGrid();
+            grid.addLadders(1);
+            grid.addSnakes(1);
         }
 
         return msg;
@@ -182,7 +186,6 @@ public class Controller {
 
     public int newTurn(int turn) {
         if (turn == 3) {
-
             return turn = 1;
         } else {
             return ++turn;

@@ -118,10 +118,8 @@ public class PlayerBst {
         return calScore(seconds, playerscore, 0);
     }
 
-    private double calScore(Double seconds, Player player, double score){
+    private double calScore(Double seconds, Player playerscore, double score){
         score = (600 - seconds) / 6;
-
-
         return score;
     }
 

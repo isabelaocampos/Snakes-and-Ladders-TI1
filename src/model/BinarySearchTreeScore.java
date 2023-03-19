@@ -12,33 +12,31 @@ public class BinarySearchTreeScore {
         return head;
     }
 
-    public void addScoreNode(ScoreNode sNode){
+    public void addScoreNode(ScoreNode playerNode){
         if(head == null){
-            head = sNode;
+            head = playerNode;
             
         }else{
-            insert(sNode, head);   
+            insert(playerNode, head);   
         }
     }
 
-    private void insert(ScoreNode sNode, ScoreNode current) {
-		// Izquierda
-		if (sNode.getScore() < current.getScore()) {
+    private void insert(ScoreNode playerNode, ScoreNode current) {
+		if (playerNode.getScore() < current.getScore()) {
 			if (current.getLeft() == null) {
-				current.setLeft(sNode);
+				current.setLeft(playerNode);
 			} else {
-				insert(sNode, current.getLeft());
+				insert(playerNode, current.getLeft());
 			}
 		}
-		// Derecha
-		else if (sNode.getScore() > current.getScore()) {
+		else if (playerNode.getScore() > current.getScore()) {
 			if (current.getRight() == null) {
-				current.setRight(sNode);
+				current.setRight(playerNode);
 			} else {
-				insert(sNode, current.getRight());
+				insert(playerNode, current.getRight());
 			}
 		} else {
-			// los nodos son iguales
+			
 		}
 	}
 
