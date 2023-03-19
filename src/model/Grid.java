@@ -103,30 +103,29 @@ public class Grid {
     }
 
     public void addSnakes(int create){
-        int attempts = 0;
-        int maxAttemps = 100;
-        while (create <= snakes){
-            if(attempts > maxAttemps){
-                return;
-            }
-            int pos = randomNumber(nRow*nColumn);
-            int pos2 = randomNumber(nRow * nColumn );
+      if(create <=snakes){
+        int pos1 = randomNumber(nColumn*nRow);
+        int pos2 = randomNumber(nColumn*nRow);
 
-            if(pos == pos2 || pos == 1 || pos2 == 1 || pos == nRow * nColumn || pos2 == nRow * nColumn){
-                continue;
-            }
+        if(pos1 == pos2 || pos1 == 1 || pos2 == 1 || pos1 == nRow*nColumn || pos2 == nColumn*nRow){
+            addSnakes(create);
+        }else{
             String letter = getLetter(create);
-            Node node = getNode(start, pos);
-            Node node2 = getNode(start, pos2);
-            if(node.allTributesNull() == 0  && node2.allTributesNull() == 0){
-                node.createTheSnake(letter);
+            Node node1= getNode(node, pos1);
+            Node node2 = getNode(node, pos2);
+            if(node1.allTributesNull() == 0 && node2.allTributesNull() == 0){
+                node1.createTheSnake(letter);
                 node2.createTheSnake(letter);
-                create++;
-                attempts = 0;
+
+                addSnakes(create = create + 1);
             }else{
-                attempts++;
+                addSnakes(create);
             }
-        }       
+        }
+      }else{
+        return;
+      }
+             
     }
     public void addLadders(int create){
         if(create <= snakes){
