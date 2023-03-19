@@ -92,12 +92,10 @@ public class Main{
             printGrid();
 
             int option2 = 0;
-            while(option2 != 0){
+            do{
                 option2 = getOptionShowMenu2();
                 executeOption2(option2); 
-
-
-            }
+            }while(option2 != 0);
             case 0:
             System.out.println("Exit program.");
         
