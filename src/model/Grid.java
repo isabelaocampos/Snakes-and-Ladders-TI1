@@ -205,32 +205,33 @@ public class Grid {
         }
     }
 
-    public int slPosition(int n){
-        return slPosition(n, node);
+    public int slPosition(int new_position){
+        return slPosition(new_position, node);
     }
 
-    private int slPosition(int n, Node pointer){
-        if(pointer.getValue() != n){
-            return slPosition(n,pointer.getNext());
+    private int slPosition(int new_position, Node pointer){
+        if(pointer.getValue() != new_position){
+            return slPosition(new_position,pointer.getNext());
         }else{
             if(pointer.getSnake() != null){
                 String symbol = pointer.getSymbolOfSnake();
+                System.out.println(symbol);
                 int posSnake = findSnake(symbol, node, pointer);
-                if(posSnake < n){
+                if(posSnake < new_position){
                     return posSnake;
                 }else{
-                    return n;
+                    return new_position;
                 }
             }else if (pointer.getLadder() != null){
                 int number = pointer.getNumberStair();
                 int posLadder = findLadder(number, node, pointer);
-                if(posLadder > n){
+                if(posLadder > new_position){
                     return posLadder;
                 }else{
-                    return n;
+                    return new_position;
                 }
             }else{
-                return n;
+                return new_position;
             }
         }
     }

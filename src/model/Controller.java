@@ -19,15 +19,15 @@ public class Controller {
         pBst = new PlayerBst();
         turn = 1;
     }
-
+    
     public Instant getStart() {
         return start;
     }
-
+    
     public Instant getEnd() {
         return end;
     }
-
+    
     public Duration getDuration() {
         return duration;
     }
@@ -37,7 +37,7 @@ public class Controller {
         pBst.insert(id, turn);
     }
 
-
+    
     public String createGame(int nRow, int nColumn, int snakes, int ladders){
         String msg = " ";
 
@@ -79,7 +79,7 @@ public class Controller {
 
         return msg;
     }
-
+    
     public String printGrid() {
         String msg = "";
 
@@ -93,7 +93,7 @@ public class Controller {
 
         return msg;
     }
-
+    
     private String print(int int1, int int2, int counter, String msg, int row, boolean type) {
 
         if (counter <= row) {
@@ -112,7 +112,7 @@ public class Controller {
         return msg;
 
     }
-
+    
     public String printSnakesNLadders() {
         String msg = "";
         int total = grid.getNcolumn() * grid.getNrow();
@@ -181,7 +181,8 @@ public class Controller {
     public void calculateScore(){
         pBst.calScore(seconds,turn);
     }
-
+    
+    
     public int slPosition(int position_new) {
 
         return grid.slPosition(position_new);
