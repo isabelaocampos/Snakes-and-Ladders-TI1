@@ -63,6 +63,14 @@ public class Grid {
         this.size = size;
     }
 
+    public Node node(){
+        return node;
+    }
+
+    public void setNode(Node node){
+        this.node = node;
+    }
+
     public void createGrid(){
         int size = nColumn * nRow;
         createGrid(null, size);
@@ -234,13 +242,6 @@ public class Grid {
             }
         }
     }
-
-
-
-
-
-
-
 
     
 }

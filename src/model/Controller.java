@@ -154,7 +154,19 @@ public class Controller {
                 return msg;
             }
         }
+    }
 
+    public String printSL(){
+        String msj = "";
+
+        int all = grid.getNcolumn() * grid.getNrow();
+
+        if(grid.getNrow() % 2 == 0){
+            msj = print(all, all- grid.getNcolumn() +1,0,msj,grid.getNrow() -1 ,false);
+        }else{
+            msj = print(all -grid.getNcolumn() + 1, all, 1, msj, grid.getNrow(), false);
+        }
+        return msj;
     }
 
     public int newTurn(int turn) {
@@ -171,18 +183,18 @@ public class Controller {
         pBst.calScore(seconds,turn);
     }
 
-    public int slPosition(int position_new) {
-
-        return grid.slPosition(position_new);
-
+    public int slPosition(int newPos) {
+        return grid.slPosition(newPos);
     }
     
     public String playerTurn(){
         String msg = pBst.turn(turn);
         return msg;
     }
-    
 
+    public String printPodium(){
+        return pBst.printPodium();
+    }
     
     public Player playerPosition(int val){
         Player player = null;

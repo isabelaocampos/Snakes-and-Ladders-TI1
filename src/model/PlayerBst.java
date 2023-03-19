@@ -96,6 +96,10 @@ public class PlayerBst {
         return printPlayer(position, root, msg, 1);
     }
 
+    public String printPodium(){
+        return binarySearchTreeScore.inOrderString();
+    }
+
     public String printPlayer(int postion, Player player, String msg, int counter) {
         if (player != null && player.getSquare() == postion && counter <= 3) {
             msg += player.getId();
