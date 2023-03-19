@@ -67,9 +67,8 @@ public class Main{
 
             break;
             case 2: 
-            System.out.println(controller.playerTurn());
             System.out.println("This are the snakes and ladders in the game");
-            printSl();
+            printSnakesNLadders();
             System.out.println("You are about to throw the dice");
             System.out.println(controller.throwDice());
             printGrid();
@@ -97,15 +96,7 @@ public class Main{
             do{
                 option2 = getOptionShowMenu2();
                 executeOption2(option2); 
-                if(controller.getEnd() != null){
-                    controller.calculateScore();
-                    System.out.println("PODIUM OF PLAYERS: \n" + controller.printPodium());
-                    
-                    break;
-                }
             }while(option2 != 0);
-
-            break;
             case 0:
             System.out.println("Exit program.");
         
@@ -179,10 +170,6 @@ public class Main{
         System.out.println(controller.printSnakesNLadders());
     }
     ////////////////
-
-    public void printSl(){
-        System.out.println(controller.printSL());
-    }
 
 
     public int validateIntegerInput(){

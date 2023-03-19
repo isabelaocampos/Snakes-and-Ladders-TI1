@@ -39,8 +39,6 @@ public class Controller {
 
 
     public String createGame(int nRow, int nColumn, int snakes, int ladders){
-       
-        start = Instant.now();
         String msg = " ";
 
         if(snakes * ladders > nColumn * nRow){
@@ -51,8 +49,6 @@ public class Controller {
             grid = new Grid(nRow,nColumn,snakes,ladders);
             msg = "Grid created";
             grid.createGrid();
-            grid.addLadders(1);
-            grid.addSnakes(1);
         }
 
         return msg;
@@ -169,23 +165,12 @@ public class Controller {
                 return msg;
             }
         }
-    }
 
-    public String printSL(){
-        String msj = "";
-
-        int all = grid.getNcolumn() * grid.getNrow();
-
-        if(grid.getNrow() % 2 == 0){
-            msj = print(all, all- grid.getNcolumn() +1,0,msj,grid.getNrow() -1 ,false);
-        }else{
-            msj = print(all -grid.getNcolumn() + 1, all, 1, msj, grid.getNrow(), false);
-        }
-        return msj;
     }
 
     public int newTurn(int turn) {
         if (turn == 3) {
+
             return turn = 1;
         } else {
             return ++turn;
@@ -197,18 +182,18 @@ public class Controller {
         pBst.calScore(seconds,turn);
     }
 
-    public int slPosition(int newPos) {
-        return grid.slPosition(newPos);
+    public int slPosition(int position_new) {
+
+        return grid.slPosition(position_new);
+
     }
     
     public String playerTurn(){
         String msg = pBst.turn(turn);
         return msg;
     }
+    
 
-    public String printPodium(){
-        return pBst.printPodium();
-    }
     
     public Player playerPosition(int val){
         Player player = null;

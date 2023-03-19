@@ -96,10 +96,6 @@ public class PlayerBst {
         return printPlayer(position, root, msg, 1);
     }
 
-    public String printPodium(){
-        return binarySearchTreeScore.inOrderString();
-    }
-
     public String printPlayer(int postion, Player player, String msg, int counter) {
         if (player != null && player.getSquare() == postion && counter <= 3) {
             msg += player.getId();
@@ -118,8 +114,10 @@ public class PlayerBst {
         return calScore(seconds, playerscore, 0);
     }
 
-    private double calScore(Double seconds, Player playerscore, double score){
+    private double calScore(Double seconds, Player player, double score){
         score = (600 - seconds) / 6;
+
+
         return score;
     }
 
