@@ -66,9 +66,8 @@ public class Controller {
             end = Instant.now();
             duration = Duration.between(start, end);
             seg = duration.toNanos() / 1_000_000_000.0;
-            // finish game
         } else if (position_P == -2) {
-            msg = "te pasaste de la ultima casilla, vuelve a intentarlo en tu proximo tiro";
+            msg = "You landed a higher number than expected, try again in your next turn";
             turn = newTurn(turn);
 
         } else {
@@ -81,6 +80,82 @@ public class Controller {
         }
 
         return msg;
+    }
+
+    public String printGrid() {
+        String msg = "";
+
+        int total = grid.getNcolumn() * grid.getNrow();
+
+        if (grid.getNcolumn() % 2 == 0) {
+            msg = print(total, total - grid.getNrow() + 1, 0, msg, grid.getNcolumn() - 1, true);
+        } else {
+            msg = print(total - grid.getNrow() + 1, total, 1, msg, grid.getNcolumn(), true);
+        }
+
+        return msg;
+    }
+
+    private String print(int int1, int int2, int counter, String msg, int row, boolean type) {
+
+        if (counter <= row) {
+            if (counter % 2 == 0) {
+                msg = printHiToLo(int1, int2, msg, type) + "\n";
+                int x = int2 - grid.getNrow();
+                int y = int1 - grid.getNrow();
+                return print(x, y, ++counter, msg, row, type);
+            } else {
+                msg = printLoToHi(int1, int2, msg, type) + "\n";
+                int x = int2 - grid.getNrow();
+                int y = int1 - grid.getNrow();
+                return print(x, y, ++counter, msg, row, type);
+            }
+        }
+        return msg;
+
+    }
+
+    private String printLoToHi(int int1, int int2, String msg, boolean type) {
+        // menor a mayor
+        if (type) {
+            if (int1 <= int2) {
+                msg += "[" + int1;
+                msg += pBst.printPlayer(int1) + "]";
+                return printLoToHi(++int1, int2, msg, type);
+            } else {
+                return msg;
+            }
+        } else {
+            if (int1 <= int2) {
+                msg += "[";
+                msg += grid.gridSL(int1) + "]";
+                return printLoToHi(++int1, int2, msg, type);
+            } else {
+                return msg;
+            }
+        }
+
+    }
+
+    private String printHiToLo(int int1, int int2, String msg, boolean type) {
+        if (type) {
+            if (int1 >= int2) {
+                msg += "[" + int1;
+                msg += pBst.printPlayer(int1) + "]";
+                return printHiToLo(--int1, int2, msg, type);
+            } else {
+                return msg;
+            }
+        } else {
+            if (int1 >= int2) {
+                msg += "[";
+                msg += grid.gridSL(int1) + "]";
+                return printHiToLo(--int1, int2, msg, type);
+            } else {
+                return msg;
+            }
+        }
+
     }
 
     public int newTurn(int turn) {

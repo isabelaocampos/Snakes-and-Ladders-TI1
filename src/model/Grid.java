@@ -12,8 +12,6 @@ public class Grid {
     private int ladder;
 
    private Node node;
-
-   private Node tail;
    
 
     public Grid(int nRow, int nColumn, int snakes, int ladder) {

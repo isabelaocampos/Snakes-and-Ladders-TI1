@@ -63,10 +63,14 @@ public class Main{
             System.out.println(controller.playerTurn());
             System.out.println("\n You are about to throw a dice");
             System.out.println(controller.throwDice());
+            printGrid();
 
             break;
             case 0: 
             System.out.println("This are the snakes and ladders in the game");
+            System.out.println("You are about to throw the dice");
+            System.out.println(controller.throwDice());
+            printGrid();
 
             break;
 
@@ -85,7 +89,7 @@ public class Main{
             createBoard();
             createPlayer(1);
             System.out.println("Time to play!");
-            //printboard();
+            printGrid();
 
             int option2 = 0;
             while(option2 != 0){
@@ -144,6 +148,9 @@ public class Main{
 
     }
 
+    public void printGrid() {
+        System.out.println(controller.printGrid());
+    }
     ////////////////
 
 

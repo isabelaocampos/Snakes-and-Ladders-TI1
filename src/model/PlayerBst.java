@@ -87,6 +87,24 @@ public class PlayerBst {
         return "[" + inOrderToString() + "]";
     }
 
+    public String printPlayer(int position) {
+        String msg = "";
+        return printPlayer(position, player, msg, 1);
+    }
+
+    public String printPlayer(int postion, Player player, String msg, int counter) {
+        if (player != null && player.getSquare() == postion && counter <= 3) {
+            msg += player.getId();
+            return printPlayer(postion, player.getNextP(), msg, ++counter);
+
+        } else if (counter <= 3) {
+            return printPlayer(postion, player.getNextP(), msg, ++counter);
+        } else {
+            return msg;
+        }
+
+    }
+
     private String inOrderToString(ScoreNode current){
         if(current == null){
             return "";
