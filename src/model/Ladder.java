@@ -9,7 +9,6 @@ public class Ladder {
     
     public Ladder(int id) {
         this.id = id;
-        this.number = number;
     }
 
     public int getId() {

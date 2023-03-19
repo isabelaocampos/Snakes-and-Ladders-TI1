@@ -26,16 +26,8 @@ public class Grid {
         return nRow;
     }
 
-    public void setNrow(){
-        this.nRow = nRow;
-    }
-
     public int getNcolumn(){
         return nColumn;
-    }
-
-    public void setNcolumn(){
-        this.nColumn = nColumn;
     }
 
 
