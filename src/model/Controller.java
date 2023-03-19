@@ -33,9 +33,8 @@ public class Controller {
     }
 
 
-    public void addPlayer( String symbol, int turn) {
-
-        pBst.insert(symbol, turn, symbol);
+    public void addPlayer( String id, int turn) {
+        pBst.insert(id, turn);
     }
 
 

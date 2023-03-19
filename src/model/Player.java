@@ -7,7 +7,7 @@ public class Player {
     private int turn;
     private int square;
 
-    public Player(String id, int turn, String symbol){
+    public Player(String id, int turn){
         this.id = id;
         this.turn = turn;
         this.square = 1;
