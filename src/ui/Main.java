@@ -115,13 +115,25 @@ public class Main{
 
         
         System.out.println("Write the amount of columns the grid is going to have: ");
-        columns = reader.nextInt();
+        columns = validateIntegerInput();
+        if(columns <= 0){
+            System.out.println("Invalid Option");
+        }
         System.out.println("Write the amount of rows the grid is going to have: ");
-        rows = reader.nextInt();
+        rows = validateIntegerInput();
+        if(rows <= 0){
+            System.out.println("Invalid Option");
+        }
         System.out.println("Write the amount of snakes that are going to be on the grid: ");
-        snakes = reader.nextInt();
+        snakes = validateIntegerInput();
+        if(snakes < 0){
+        System.out.println("Invalid Option");
+        }
         System.out.println("Write the amount of ladders that are going to be on the grid: ");
-        ladders = reader.nextInt();
+        ladders = validateIntegerInput();
+        if(ladders < 0){
+            System.out.println("Invalid Option");
+        }
         controller.createGame(rows, columns, snakes, ladders);
     }
 
