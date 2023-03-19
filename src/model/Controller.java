@@ -59,9 +59,7 @@ public class Controller {
         String msg = "";
         int num = grid.randomNumber(6);
         int position_P = pBst. throwDice(num, grid.getNcolumn() * grid.getNrow(), turn);
-        System.out.println("The player new position will be " + position_P);
         if (position_P == -1) {
-
             end = Instant.now();
             duration = Duration.between(start, end);
             seconds = duration.toNanos() / 1_000_000_000.0;
@@ -70,7 +68,8 @@ public class Controller {
             turn = newTurn(turn);
 
         } else {
-            System.out.println("Your dice landed in the number" + num + "\n");
+            System.out.println("Your dice landed in the number " + num);
+            System.out.println("The player new position will be " + position_P);
             int position = slPosition(position_P);
             msg = pBst.setPosition(position, turn);
             turn = newTurn(turn);
@@ -114,8 +113,20 @@ public class Controller {
 
     }
 
+    public String printSnakesNLadders() {
+        String msg = "";
+        int total = grid.getNcolumn() * grid.getNrow();
+
+        if (grid.getNcolumn() % 2 == 0) {
+            msg = print(total, total - grid.getNrow() + 1, 0, msg, grid.getNrow() - 1, false);
+        } else {
+            msg = print(total - grid.getNrow() + 1, total, 1, msg, grid.getNrow(), false);
+        }
+        return msg;
+    }
+
     private String printLoToHi(int int1, int int2, String msg, boolean type) {
-        // menor a mayor
+
         if (type) {
             if (int1 <= int2) {
                 msg += "[" + int1;
