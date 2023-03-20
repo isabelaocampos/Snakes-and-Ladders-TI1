@@ -58,6 +58,7 @@ public class Controller {
 
 
     public String throwDice(){
+        Instant start = Instant.now();
         String msg = "";
         int num = grid.randomNumber(6);
         int position_P = pBst. throwDice(num, grid.getNcolumn() * grid.getNrow(), turn);
