@@ -4,7 +4,6 @@ public class Node {
 
 	private int value;
 	private Node next; 
-	private Node previous; 
 	private Snake snake;
 	private Ladder ladder;
 
@@ -29,18 +28,6 @@ public class Node {
 		this.next = next;
 	}
 
-	public Node getPrevious() {
-		return previous;
-	}
-
-	public void setPrevious(Node previous) {
-		this.previous = previous;
-	}
-
-	@Override
-	public String toString(){
-		return "My value is: " + value; 
-	}
 
 	public void createTheSnake(String symbol){
 		this.snake = new Snake(symbol);
@@ -74,8 +61,8 @@ public class Node {
 		return snake.getSymbol();
 	}
 
-	public int getNumberStair(){
-		return ladder.getNumber();
+	public int getLadderNumber(){
+		return ladder.getId();
 	}
 
 }

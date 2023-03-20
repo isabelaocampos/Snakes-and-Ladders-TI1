@@ -148,7 +148,7 @@ public class Grid {
     }
 
     private int findLadder(int num, Node pointer,Node value ){
-        if(pointer.getLadder() != null && pointer.getNumberStair() == num && pointer !=value){
+        if(pointer.getLadder() != null && pointer.getLadderNumber() == num && pointer !=value){
             return pointer.getValue();
         }else{
             return findLadder(num, pointer.getNext(), value);
@@ -177,7 +177,7 @@ public class Grid {
             if(pointer.getSnake() != null){
                 return list += pointer.getSymbolOfSnake();
             }else if(pointer.getLadder() != null){
-                return list += pointer.getNumberStair();
+                return list += pointer.getLadderNumber();
             }else{
                 return list;
             }
@@ -222,7 +222,7 @@ public class Grid {
                     return new_position;
                 }
             }else if (pointer.getLadder() != null){
-                int number = pointer.getNumberStair();
+                int number = pointer.getLadderNumber();
                 int posLadder = findLadder(number, node, pointer);
                 if(posLadder > new_position){
                     return posLadder;
