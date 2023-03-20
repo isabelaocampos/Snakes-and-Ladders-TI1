@@ -145,7 +145,7 @@ public class Grid {
                     node2.createTheLadder(create);
                     addLadders(++create);
                 }else{
-                    addLadders(create);;
+                    addLadders(create);
                 }
             }
         }
