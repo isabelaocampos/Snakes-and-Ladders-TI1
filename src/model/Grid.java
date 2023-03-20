@@ -213,7 +213,7 @@ public class Grid {
     }
 
     private int slPosition(int new_position, Node pointer){
-        if(pointer.getValue() != new_position){
+        if(pointer != null && pointer.getValue() != new_position){
             return slPosition(new_position,pointer.getNext());
         }else{
             if(pointer.getSnake() != null){

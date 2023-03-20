@@ -108,7 +108,7 @@ public class Main{
 
         }
     }
-    //Validaciones
+    
     public void createBoard(){
         int columns, rows, snakes, ladders = 0;
 
