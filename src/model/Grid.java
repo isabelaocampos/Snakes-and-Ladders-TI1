@@ -39,6 +39,10 @@ public class Grid {
         return start;
     }
 
+    public void setStart(Node start){
+        this.start = start;
+    }
+
     public Node getGoal(){
         return goal;
     }
@@ -128,20 +132,20 @@ public class Grid {
              
     }
     public void addLadders(int create){
-        if(create <= snakes){
+        if(create <= ladder){
             int pos  = randomNumber(nRow *nColumn);
             int pos2 = randomNumber(nRow * nColumn);
             if(pos == pos2 || pos ==1 || pos2 == 1 || pos == nRow *nColumn || pos2 == nRow*nColumn){
-                addSnakes(create);
+                addLadders(create);
             }else{
-                Node node = getNode(goal, pos);
-                Node node2 = getNode(node, pos2);
+                Node node = getNode(start, pos);
+                Node node2 = getNode(start, pos2);
                 if(node.allTributesNull() == 0 && node2.allTributesNull() == 0){
                     node.createTheLadder(create);
                     node2.createTheLadder(create);
-                    addSnakes(++create);
+                    addLadders(++create);
                 }else{
-                    addSnakes(create);
+                    addLadders(create);;
                 }
             }
         }
@@ -166,7 +170,7 @@ public class Grid {
     public String gridSL(int n){
         String list = "";
 
-        return gridSL(node, list, n);
+        return gridSL(start, list, n);
     }
 
     public String gridSL(Node pointer, String list, int n){
@@ -188,7 +192,7 @@ public class Grid {
 
     public String grid(int n){
         String list ="";
-        return grid(node,list, n);
+        return grid(start,list, n);
     }
     
 
