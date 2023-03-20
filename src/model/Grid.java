@@ -109,40 +109,30 @@ public class Grid {
 
     public void addSnakes(int create){
         if(create <= snakes){
-            int pos1 = randomNumber(nColumn * nRow);
-            int pos2 = randomNumber(nColumn * nRow);
-    
-            if(pos1 == pos2 || pos1 == 1 || pos2 == 1 || pos1 == nRow * nColumn || pos2 == nColumn * nRow){
+            int pos1 = randomNumber(nColumn*nRow);
+            int pos2 = randomNumber(nColumn*nRow);
+            if(pos1 == pos2 || pos1 == 1 || pos2 == 1 || pos1 == nRow*nColumn || pos2 == nColumn*nRow){
                 addSnakes(create);
             }else{
                 String letter = getLetter(create);
-                Node node1 = getNode(node, pos1);
+                Node node1= getNode(node, pos1);
                 Node node2 = getNode(node, pos2);
-    
-                // Verificar si `getNode` devuelve un nodo válido
-                if (node1 == null || node2 == null) {
-                    System.out.println("getNode returned a null node");
-                    addSnakes(create);
-                    return;
-                }
-    
-                System.out.println("Node1: " + node1 + ", Node2: " + node2);
-    
-                if(node1.allTributesNull() == 0 && node2.allTributesNull() == 0){
+                if(node1 != null && node2 != null && node1.allTributesNull() == 0 && node2.allTributesNull() == 0){
                     node1.createTheSnake(letter);
                     node2.createTheSnake(letter);
-    
-                    addSnakes(create + 1);
+                    create++; // Incrementa el contador de serpientes agregadas
+                    addSnakes(create);
                 }else{
                     addSnakes(create);
                 }
             }
+        } else {
+            // Se han agregado todas las serpientes necesarias, salir del ciclo recursivo
+            return;
         }
     }
     
-    
-    
-    
+
     public void addLadders(int create){
         if(create <= ladder){
             int pos  = randomNumber(nRow *nColumn);
