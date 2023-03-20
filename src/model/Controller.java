@@ -204,7 +204,7 @@ public class Controller {
         return player;
     }
 
-    public String printPodium(){
-        return pBst.podium();
+    public void printPodium(){
+        pBst.podium();
     }
 }

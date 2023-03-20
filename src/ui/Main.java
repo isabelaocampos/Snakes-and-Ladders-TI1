@@ -97,7 +97,8 @@ public class Main{
                 if (controller.getEnd() != null ) {
 
                     controller.calculateScore();
-                    System.out.println("** Players Podium **\n" + controller.printPodium());
+                    System.out.println("** Players Podium **\n");
+                    controller.printPodium();
                     option2 = 0;
                     break;
                 }

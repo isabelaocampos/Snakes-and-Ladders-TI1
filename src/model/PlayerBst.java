@@ -121,8 +121,8 @@ public class PlayerBst {
         return score;
     }
 
-    public String podium(){
-        return bstScore.inOrderString();
+    public void podium(){
+        bstScore.printPodium();
     }
 
     
