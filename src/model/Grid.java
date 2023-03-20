@@ -213,10 +213,16 @@ public class Grid {
     }
 
     private int slPosition(int new_position, Node pointer){
-        if(pointer != null && pointer.getValue() != new_position){
-            return slPosition(new_position,pointer.getNext());
+        if (pointer == null) {
+            return new_position;
+        }
+        if (pointer.getValue() != new_position){
+            return slPosition(new_position, pointer.getNext());
         }else{
             if(pointer.getSnake() != null){
+                if (pointer.getSnake().getSymbol() == null) {
+                    return new_position;
+                }
                 String symbol = pointer.getSymbolOfSnake();
                 System.out.println(symbol);
                 int posSnake = findSnake(symbol, node, pointer);
