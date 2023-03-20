@@ -204,6 +204,6 @@ public class Controller {
     }
 
     public String printPodium(){
-        return pBst.printPodium();
+        return pBst.podium();
     }
 }

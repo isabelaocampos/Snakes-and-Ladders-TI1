@@ -93,6 +93,14 @@ public class Main{
             do{
                 option2 = getOptionShowMenu2();
                 executeOption2(option2); 
+
+                if (controller.getEnd() != null ) {
+
+                    controller.calculateScore();
+                    System.out.println("** Players Podium **\n" + controller.printPodium());
+                    option2 = 0;
+                    break;
+                }
             }while(option2 != 0);
             case 0:
             System.out.println("Exit program.");
