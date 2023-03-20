@@ -107,30 +107,31 @@ public class Grid {
     }
 
     public void addSnakes(int create){
-      if(create <=snakes){
-        int pos1 = randomNumber(nColumn*nRow);
-        int pos2 = randomNumber(nColumn*nRow);
-
-        if(pos1 == pos2 || pos1 == 1 || pos2 == 1 || pos1 == nRow*nColumn || pos2 == nColumn*nRow){
-            addSnakes(create);
-        }else{
-            String letter = getLetter(create);
-            Node node1= getNode(node, pos1);
-            Node node2 = getNode(node, pos2);
-            if(node1.allTributesNull() == 0 && node2.allTributesNull() == 0){
-                node1.createTheSnake(letter);
-                node2.createTheSnake(letter);
-
-                addSnakes(create = create + 1);
-            }else{
+        if(create <= snakes){
+            int pos1 = randomNumber(nColumn*nRow);
+            int pos2 = randomNumber(nColumn*nRow);
+            if(pos1 == pos2 || pos1 == 1 || pos2 == 1 || pos1 == nRow*nColumn || pos2 == nColumn*nRow){
                 addSnakes(create);
+            }else{
+                String letter = getLetter(create);
+                Node node1= getNode(start, pos1);
+                Node node2 = getNode(start, pos2);
+                if(node1 != null && node2 != null && node1.allTributesNull() == 0 && node2.allTributesNull() == 0){
+                    node1.createTheSnake(letter);
+                    node2.createTheSnake(letter);
+                    create++; // Incrementa el contador de serpientes agregadas
+                    addSnakes(create);
+                }else{
+                    addSnakes(create);
+                }
             }
+        } else {
+            // Se han agregado todas las serpientes necesarias, salir del ciclo recursivo
+            return;
         }
-      }else{
-        return;
-      }
-             
     }
+    
+    
     public void addLadders(int create){
         if(create <= ladder){
             int pos  = randomNumber(nRow *nColumn);
@@ -143,11 +144,15 @@ public class Grid {
                 if(node.allTributesNull() == 0 && node2.allTributesNull() == 0){
                     node.createTheLadder(create);
                     node2.createTheLadder(create);
-                    addLadders(++create);
+                    create++; // Incrementa el contador de escaleras agregadas
+                    addLadders(create);
                 }else{
                     addLadders(create);
                 }
             }
+        } else {
+            // Se han agregado todas las escaleras necesarias, salir del ciclo recursivo
+            return;
         }
     }
 
