@@ -122,7 +122,7 @@ public class PlayerBst {
     }
 
     public void podium(){
-        bstScore.printPodium();
+        bstScore.inOrderString();
     }
 
     
