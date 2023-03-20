@@ -69,9 +69,6 @@ public class Main{
             case 2: 
             System.out.println("This are the snakes and ladders in the game");
             printSnakesNLadders();
-            System.out.println("You are about to throw the dice");
-            System.out.println(controller.throwDice());
-            printGrid();
 
             break;
 
