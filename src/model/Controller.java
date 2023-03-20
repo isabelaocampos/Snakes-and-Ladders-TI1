@@ -49,8 +49,7 @@ public class Controller {
             grid = new Grid(nRow,nColumn,snakes,ladders);
             msg = "Grid created";
             grid.createGrid();
-            grid.addSnakes(1);
-            grid.addLadders(1);
+
  
         }
 
