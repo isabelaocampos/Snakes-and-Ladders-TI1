@@ -31,7 +31,9 @@ public class Node {
 
 	public void createTheSnake(String symbol){
 		this.snake = new Snake(symbol);
+		System.out.println("Created snake with symbol " + symbol);
 	}
+	
 
 	public void createTheLadder(int value){
 		this.ladder= new Ladder(value); 
