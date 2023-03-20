@@ -49,6 +49,8 @@ public class Controller {
             grid = new Grid(nRow,nColumn,snakes,ladders);
             msg = "Grid created";
             grid.createGrid();
+            grid.addLadders(1);
+            grid.addSnakes(1);
         }
 
         return msg;
@@ -99,13 +101,13 @@ public class Controller {
         if (counter <= row) {
             if (counter % 2 == 0) {
                 msg = printHiToLo(int1, int2, msg, type) + "\n";
-                int x = int2 - grid.getNrow();
-                int y = int1 - grid.getNrow();
+                int x = int2 - grid.getNcolumn();
+                int y = int1 - grid.getNcolumn();
                 return print(x, y, ++counter, msg, row, type);
             } else {
                 msg = printLoToHi(int1, int2, msg, type) + "\n";
-                int x = int2 - grid.getNrow();
-                int y = int1 - grid.getNrow();
+                int x = int2 - grid.getNcolumn();
+                int y = int1 - grid.getNcolumn();
                 return print(x, y, ++counter, msg, row, type);
             }
         }
@@ -117,10 +119,10 @@ public class Controller {
         String msg = "";
         int total = grid.getNcolumn() * grid.getNrow();
 
-        if (grid.getNcolumn() % 2 == 0) {
-            msg = print(total, total - grid.getNrow() + 1, 0, msg, grid.getNrow() - 1, false);
+        if (grid.getNrow() % 2 == 0) {
+            msg = print(total, total - grid.getNcolumn() + 1, 0, msg, grid.getNrow() - 1, false);
         } else {
-            msg = print(total - grid.getNrow() + 1, total, 1, msg, grid.getNrow(), false);
+            msg = print(total - grid.getNcolumn() + 1, total, 1, msg, grid.getNrow(), false);
         }
         return msg;
     }
@@ -199,5 +201,9 @@ public class Controller {
     public Player playerPosition(int val){
         Player player = null;
         return player;
+    }
+
+    public String printPodium(){
+        return pBst.printPodium();
     }
 }
