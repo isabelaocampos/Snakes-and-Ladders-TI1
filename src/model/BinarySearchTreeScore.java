@@ -44,18 +44,33 @@ public class BinarySearchTreeScore {
 
 
 
-    public String inOrderString(){
-		return "[" + inOrderString(head) + "]"; 
-	}
-
-	private String inOrderString(ScoreNode current){
-		if(current == null){
-			return ""; 
+	public String inOrderString() {
+		if (head == null) {
+			return "[]";
 		}
-
-		return inOrderString(current.getRight()) + ",  " + "Player: " + current.getName() + " score: "
-				+ current.getScore() + " , " + inOrderString(current.getLeft());
+		return "[" + inOrderString(head) + "]";
 	}
+	
+	private String inOrderString(ScoreNode current) {
+		if (current == null) {
+			return "";
+		}
+	
+		String leftString = inOrderString(current.getLeft());
+		String rightString = inOrderString(current.getRight());
+	
+		String nodeString = "";
+		if (!leftString.isEmpty()) {
+			nodeString += leftString + " ";
+		}
+		nodeString += current.getScore();
+		if (!rightString.isEmpty()) {
+			nodeString += " " + rightString;
+		}
+	
+		return nodeString;
+	}
+	
 
 	
 
