@@ -4,11 +4,11 @@ package model;
 
 public class PlayerBst {
     private Player root;
-    private BinarySearchTreeScore binarySearchTreeScore;
+    private BinarySearchTreeScore bstScore;
 
     public PlayerBst(){
         this.root = null;
-        binarySearchTreeScore = new BinarySearchTreeScore();
+        bstScore = new BinarySearchTreeScore();
 
     }
 
@@ -56,19 +56,19 @@ public class PlayerBst {
 
     public int throwDice(int n, int max, int turn) {
 
-        Player player_turn = findP(root, turn);
-        return throwDice(n, max, player_turn);
+        Player playerTurn = findP(root, turn);
+        return throwDice(n, max, playerTurn);
     }
 
     private int throwDice(int n, int max, Player player) {
 
-        int new_position = player.getSquare() + n;
-        if (new_position == max) {
+        int newPosition = player.getSquare() + n;
+        if (newPosition == max) {
             return -1;
-        } else if (new_position > max) {
+        } else if (newPosition > max) {
             return -2;
         } else {
-            return new_position;
+            return newPosition;
         }
     
     }
@@ -82,8 +82,8 @@ public class PlayerBst {
     }
 
     public String setPosition(int n, int turn) {
-        Player player_turn = findP(root, turn);
-        player_turn.setSquare(n);
+        Player playerTurn = findP(root, turn);
+        playerTurn.setSquare(n);
         return "Player has moved";
     }
 
@@ -119,6 +119,10 @@ public class PlayerBst {
 
 
         return score;
+    }
+
+    public String printPodium(){
+        return bstScore.inOrderString();
     }
 
     

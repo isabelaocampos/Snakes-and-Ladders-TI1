@@ -55,7 +55,9 @@ public class Node {
 	public Ladder getLadder(){
 		return ladder;
 	}
-
+	public void setLadder(Ladder ladder){
+		this.ladder = ladder;
+	}
 
 	public String getSymbolOfSnake(){
 		return snake.getSymbol();
