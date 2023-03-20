@@ -39,7 +39,7 @@ public class Main{
 		System.out.println("<<<<< Welcome to Snakes and Ladders >>>>>");
 		System.out.println(
 				"1. Play \n" +
-                "2. Exit");
+                "0. Exit");
 
 		option = reader.nextInt(); 
 
